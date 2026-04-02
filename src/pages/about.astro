@@ -1,0 +1,91 @@
+---
+
+
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+
+
+const pageTitle = "私について";
+
+const identity = {
+  firstName: "サラ",
+  country: "カナダ",
+  occupation: "技術ライター",
+  hobbies: ["写真", "バードウォッチング", "野球"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメントの執筆"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
+---
+
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <style>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+    </style>
+    <style>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: green;
+    font-weight: bold;
+  }
+</style>
+  </head>
+  
+<Layout>
+
+<Navigation>    </Navigation>
+  <main>
+    
+    <title>Astro</title>
+    <title>{pageTitle}</title>
+
+    <h1>ABOUT</h1>
+      <h1>{pageTitle}</h1>
+    <h2>ここでは私について知ってもらう</h2>
+    <p>ここに好きな文章を書く。</p>
+<p>以下は私に関するいくつかの事実です。</p>
+<ul>
+    <blockquote>
+  <li>私の名前は{identity.firstName}です。</li>
+  <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
+  {identity.hobbies.length >= 2 &&
+    <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
+  }
+    </blockquote>
+</ul>
+ <p>私のスキルは以下の通りです。</p>
+<ul>
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
+</ul>
+<ul>
+    </ul>
+    <a href="/blog">ブログを見に行く</a>
+    {happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
+
+{finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
+
+{goal === 3 ? <p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
+  </main>
+
+</Layout>
