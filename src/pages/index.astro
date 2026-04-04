@@ -1,24 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const pageTitle = "Home Page";
+import Greeting from '../components/Greeting';
 
-import Navigation from '../components/Navigation.astro';
-import "../styles/global.css";
-
-const pageTitle = "ホームページ";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
-<Layout>
-  
-<Navigation />
-
-  <main>
-    <h1>こんにちは！僕のサイトへようこそ</h1>
-    <p>ここに好きな文章を書いてみてください。</p>
-
-    <a href="/blog">ブログを見に行く</a>
-    
-  </main>
-
-</Layout>
+<Layout pageTitle={pageTitle}>
+  <h2>私の素晴らしいブログのサブタイトル</h2>
+  <Greeting client:load messages={['こんにちは', 'Hello', 'Hola']} />
+  </Layout>
